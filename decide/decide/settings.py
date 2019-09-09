@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+APIS={}
 
 # Application definition
 
@@ -68,7 +69,7 @@ MODULES = [
     'voting',
 ]
 
-BASEURL = 'http://localhost:8000'
+BASEURL = 'https://egc-m4-antmilgar.herokuapp.com/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -158,5 +159,7 @@ try:
 except ImportError:
     print("local_settings.py not found")
 
+import django_heroku
+django_heroku.settings(locals())
 
 INSTALLED_APPS = INSTALLED_APPS + MODULES
